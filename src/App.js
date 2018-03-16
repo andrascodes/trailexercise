@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+
+import { getAllGames, getGamesPlayedByFriends } from './lib/GameAPI'
 
 class App extends Component {
+
   render() {
+
+    console.log('Games', getAllGames())
+    console.log('Played by Friends', getGamesPlayedByFriends())
+
+
     return (
       <div className="App">
         <header className="App-header">
