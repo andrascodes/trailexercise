@@ -2,13 +2,13 @@ import React, { Component, Fragment } from 'react'
 
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 
 import './App.css'
 
-import { getAllGames, getGamesPlayedByFriends } from './lib/GameAPI'
+import GameAPI from './lib/GameAPI'
+import { BrowseGamesView } from './views'
 
 class App extends Component {
 
@@ -17,15 +17,24 @@ class App extends Component {
     games: []
   }
 
-  renderApp = () => (
-    <Fragment>
-      <header className="App-header">
-        <h1 className="App-title">Welcome to React</h1>
-      </header>
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
-    </Fragment>
+  componentDidMount() {
+    this.setState({
+      games: GameAPI.getAllGames()
+    })
+  }
+
+  getAllGames = () => this.state.games
+  getGamesPlayedByFriends = () => this.state.games.filter( 
+    ({ attributes }) => 
+      attributes.online_friends !== null && attributes.online_friends.length > 0
+  )
+  getGameById = id => this.state.games.find(game => game.id === id)
+
+  renderBrowseGamesView = props => (
+    <BrowseGamesView 
+      games={this.getAllGames()}
+      {...props}
+    />
   )
 
   render() {
@@ -33,7 +42,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Fragment>
-            <Route exact path="/" render={this.renderApp}/>
+            <Route exact path="/" render={this.renderBrowseGamesView}/>
             <Route exact path="/games/:id" render={() => (<h1>Hello World!</h1>)}/>
           </Fragment>
         </Router>
@@ -42,4 +51,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

@@ -1,0 +1,11 @@
+.BrowseGamesView {
+  display: flex;
+  flex-direction: column;
+}
+
+.GameList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}

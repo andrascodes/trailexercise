@@ -1,0 +1,11 @@
+.GameThumbnail {
+  min-height: 9em;
+  min-width: 16em;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  margin: 0.3em;
+  flex: 1 1;
+}
