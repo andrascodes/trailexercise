@@ -22,17 +22,12 @@ class App extends Component {
       games: GameAPI.getAllGames()
     })
   }
-
-  getAllGames = () => this.state.games
-  getGamesPlayedByFriends = () => this.state.games.filter( 
-    ({ attributes }) => 
-      attributes.online_friends !== null && attributes.online_friends.length > 0
-  )
+  
   getGameById = id => this.state.games.find(game => game.id === id)
 
   renderBrowseGamesView = props => (
     <BrowseGamesView 
-      games={this.getAllGames()}
+      games={this.state.games}
       {...props}
     />
   )

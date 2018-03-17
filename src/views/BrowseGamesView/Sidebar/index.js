@@ -1,20 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import './Sidebar.css'
 
-class Sidebar extends Component {
+import PlayedByFriendsThumbnail from './PlayedByFriendsThumbnail'
 
-  state = {
-    shown: true,
-  }
+const Sidebar = props => {
+  return (
+    <div className="Sidebar">
 
-  render() {
-    return (
-      <div>
+      <h3>What you're friends are playing</h3>
+
+      <div className="PlayedByFriendsList">
+
+        {props.games.map(({ id, attributes }) => (
+          <PlayedByFriendsThumbnail 
+            key={`playedby-${id}`}
+            name={attributes.name}
+            image={attributes.img_card_bg}
+            backgroundColor={attributes.img_card_avg_color}
+            friends={attributes.online_friends}
+          />
+        ))}
         
       </div>
-    )
-  }
+
+    </div>
+  )
 }
 
 export default Sidebar

@@ -1,0 +1,17 @@
+.PlayedByFriendsThumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PlayedByFriendsImage {
+  width: 7em;
+  height: 4.5em;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.PlayedByFriendsText {
+  flex: 1 1;
+}

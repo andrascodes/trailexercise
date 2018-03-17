@@ -1,17 +1,19 @@
 import React from 'react';
+import {
+  Link
+} from 'react-router-dom'
 
 import './GameThumbnail.css'
 
 const GameThumbnail = (props) => {
 
   const style = {
-    'backgroundImage': `url(${props.image})`,
     'backgroundColor': props.backgroundColor,
   }
 
   return (
     <div className="GameThumbnail" style={style}>
-      
+      <img src={props.image} alt=""/>
     </div>
   )
 }
