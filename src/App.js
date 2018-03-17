@@ -37,8 +37,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <Fragment>
-            <Route exact path="/" render={this.renderBrowseGamesView}/>
-            <Route exact path="/games/:id" render={() => (<h1>Hello World!</h1>)}/>
+            <Route exact path={`${process.env.PUBLIC_URL}/`} render={this.renderBrowseGamesView}/>
+            <Route exact path={`${process.env.PUBLIC_URL}/games/:id`} render={() => (<h1>Hello World!</h1>)}/>
           </Fragment>
         </Router>
       </div>
