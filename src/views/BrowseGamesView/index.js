@@ -19,14 +19,17 @@ const BrowseGamesView = (props) => {
 
       <div className="BrowseGamesViewContent">
         <div className="GameList">
-          {props.games.map(({ id, attributes }) => (
-            <GameThumbnail 
-              key={`game-${id}`}
-              name={attributes.name}
-              image={attributes.img_card_bg}
-              backgroundColor={attributes.img_card_avg_color}
-            />
-          ))}
+          {props.games.map(({ id, attributes }, index) => {
+
+            return (
+              <GameThumbnail 
+                key={`game-${id}`}
+                name={attributes.name}
+                image={attributes.img_card_bg}
+                backgroundColor={attributes.img_card_avg_color}
+              />
+            )
+          })}
         </div>
 
         <Sidebar 
