@@ -1,11 +1,11 @@
 .GameThumbnail {
   flex: 1 1 16em;
   margin: 0.4em;
-  height: 10em;
+  height: 9em;
 }
 
 #sidebarToggle:checked ~ .GameList .GameThumbnail {
-  height: 11em;
+  height: 10em;
 }
 
 .GameThumbnailContainer {
@@ -80,55 +80,70 @@
   opacity: 0;
 }
 
-@media (max-width: 1200px)  { 
-  .GameThumbnail {
-    height: 9em;
-  }
-
-  #sidebarToggle:checked ~ .GameList .GameThumbnail {
-    height: 10em;
-  }
-}
-
-@media (max-width: 1138px)  {  
+@media (max-width: 1230px)  { 
   .GameThumbnail {
     height: 13em;
   }
+
+  #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 9em;
+  }
 }
 
-@media (max-width: 950px)  {  
-  .GameThumbnail {
+@media (max-width: 1155px)  {  
+  .GameThumbnail,  #sidebarToggle:checked ~ .GameList .GameThumbnail {
     height: 12em;
   }
 }
 
-@media (max-width: 900px)  { 
+@media (max-width: 970px)  {  
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
     height: 10em;
   }
 }
 
-@media (max-width: 796px)  { 
+@media (max-width: 885px)  { 
+
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
     height: 13em;
   }
 }
 
-@media (max-width: 650px)  { 
+@media (max-width: 780px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 12em;
+  }
+}
+
+@media (max-width: 700px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 11em;
+  }
+}
+
+@media (max-width: 660px)  { 
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
     height: 10em;
   }
 }
 
-@media (max-width: 531px)  { 
+@media (max-width: 616px)  { 
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
-    height: 18em;
+    height: 20em;
+    flex: 1 1 100%;
+    margin: 0.5em 0em;
   }
 }
 
-@media (max-width: 465px)  { 
+@media (max-width: 540px)  { 
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
-    height: 15em;
+    height: 17em;
+  }
+}
+
+@media (max-width: 400px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 13em;
   }
 }
 

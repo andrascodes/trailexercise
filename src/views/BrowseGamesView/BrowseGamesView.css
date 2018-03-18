@@ -33,3 +33,9 @@
   }
 
 }
+
+@media (max-width: 616px)  { 
+  .GameList {
+    margin: 0;
+  }
+}
