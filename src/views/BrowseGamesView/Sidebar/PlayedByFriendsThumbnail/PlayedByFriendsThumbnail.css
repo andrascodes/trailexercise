@@ -1,7 +1,8 @@
 .PlayedByFriendsThumbnail {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 1em 0em;
 }
 
 .PlayedByFriendsImage {
@@ -14,4 +15,22 @@
 
 .PlayedByFriendsText {
   flex: 1 1;
+  padding: 0 1em;
+}
+
+.PlayedByFriendsText p {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.PlayedByFriendsTitle {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+}
+
+.PlayedByFriendsCaption {
+  font-size: 0.75em;
+  opacity: 0.5;
+  margin-top: 0;
+  margin-bottom: 0;
 }
