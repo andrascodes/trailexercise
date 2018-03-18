@@ -11,7 +11,6 @@ const Sidebar = props => {
       <h3>What you're friends are playing</h3>
 
       <div className="PlayedByFriendsList">
-
         {props.games.map(({ id, attributes }) => (
           <PlayedByFriendsThumbnail 
             key={`playedby-${id}`}
@@ -21,7 +20,6 @@ const Sidebar = props => {
             friends={attributes.online_friends}
           />
         ))}
-        
       </div>
 
     </div>
