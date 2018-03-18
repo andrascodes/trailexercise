@@ -152,7 +152,7 @@
   }
   
   #sidebarToggle:checked ~ .Sidebar h3 {
-    margin: 0 3em;
+    margin: 0 2em;
     align-self: center;
     display: block;
     opacity: 1;
@@ -189,8 +189,16 @@
   
   #sidebarToggle:checked ~ .Sidebar .PlayedByFriendsThumbnail  {
     display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 1em 0.2em;
     opacity: 1;
     transform: translate(0);
+  }
+  
+  #sidebarToggle:checked ~ .Sidebar .PlayedByFriendsImage  {
+    width: 11em;
+    height: 6.5em;
   }
 
 }
