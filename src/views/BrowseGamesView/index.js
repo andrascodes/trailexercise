@@ -37,6 +37,12 @@ class BrowseGamesView extends Component {
         </div>
 
         <div className="BrowseGamesViewContent">
+          <input type="checkbox" id="sidebarToggle" name="sidebarToggle" />
+          
+          <Sidebar 
+            games={this.gamesPlayedByFriends(this.props.games)}
+          />
+
           <div className="GameList">
             {this.props.games.map(({ id, attributes }, index) => {
 
@@ -51,11 +57,6 @@ class BrowseGamesView extends Component {
               )
             })}
           </div>
-          
-          <input type="checkbox" id="sidebarToggle" name="sidebarToggle" />
-          <Sidebar 
-            games={this.gamesPlayedByFriends(this.props.games)}
-          />
         </div>
 
       </div>

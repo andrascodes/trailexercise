@@ -1,8 +1,11 @@
 .GameThumbnail {
   flex: 1 1 16em;
   margin: 0.3em;
+  height: 10em;
+}
 
-  height: 14em;
+#sidebarToggle:checked ~ .GameList .GameThumbnail {
+  height: 11em;
 }
 
 .GameThumbnailContainer {
@@ -49,9 +52,13 @@
   transition: opacity 1500ms ease;
 }
 
+.colorBackground {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.68);
+}
+
 .GameThumbnailVideo {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   top: 0;
   left: 50%;
   right: 50%;
@@ -71,4 +78,62 @@
 
 .hide {
   opacity: 0;
+}
+
+@media (max-width: 1200px)  { 
+  .GameThumbnail {
+    height: 9em;
+  }
+
+  #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 10em;
+  }
+}
+
+@media (max-width: 1138px)  {  
+  .GameThumbnail {
+    height: 13em;
+  }
+}
+
+@media (max-width: 950px)  {  
+  .GameThumbnail {
+    height: 12em;
+  }
+}
+
+@media (max-width: 900px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 10em;
+  }
+}
+
+@media (max-width: 796px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 13em;
+  }
+}
+
+@media (max-width: 650px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 10em;
+  }
+}
+
+@media (max-width: 531px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 18em;
+  }
+}
+
+@media (max-width: 465px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 15em;
+  }
+}
+
+@media (max-width: 320px)  { 
+  .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
+    height: 11em;
+  }
 }

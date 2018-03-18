@@ -5,6 +5,7 @@
 
 .BrowseGamesViewContent {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .Header {
@@ -21,4 +22,12 @@
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+}
+
+@media (max-width: 900px)  {
+
+  .BrowseGamesViewContent {
+    flex-direction: column;
+  }
+
 }

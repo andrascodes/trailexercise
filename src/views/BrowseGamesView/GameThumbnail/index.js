@@ -22,13 +22,18 @@ class GameThumbnail extends Component {
       this.imageElement.setAttribute(
         'style',
         `background-image: url('${this.props.image}')`
-      );
-      this.imageElement.classList.add('show');
+      )
+      this.imageElement.classList.add('show')
       
       this.setState({
         imageLoaded: true
       })
     }
+  }
+
+  handleVideoEndEvent = (event) => {
+    event.target.classList.remove('show')
+    this.imageElement.classList.remove('colorBackground')
   }
 
   render() {
@@ -47,11 +52,15 @@ class GameThumbnail extends Component {
             className="GameThumbnailVideo"
             onMouseEnter={(event) => {
               event.target.play()
+              event.target.addEventListener('ended', this.handleVideoEndEvent)
               event.target.classList.add('show')
+              this.imageElement.classList.add('colorBackground')
             }}
             onMouseLeave={(event) => {
               event.target.pause()
+              event.target.removeEventListener('ended', this.handleVideoEndEvent)
               event.target.classList.remove('show')
+              this.imageElement.classList.remove('colorBackground')
               event.target.currentTime = 0
             }}
             ref={videoElement => this.videoElement = videoElement}
@@ -65,6 +74,7 @@ class GameThumbnail extends Component {
             style={{ 
               backgroundColor: this.props.backgroundColor,
             }}
+            ref={loadElement => this.loadElement = loadElement}
           >
             {this.props.name}
           </div>
