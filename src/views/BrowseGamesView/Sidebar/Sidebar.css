@@ -1,16 +1,58 @@
 .Sidebar {
-  /* flex: 1 1 30%; */
-  flex: 0 0 30%;
+  flex: 1 1 30%;
   display: flex;
   flex-direction: column;
+  transition: flex 0.5s;
+}
+
+#sidebarToggle:checked ~ .Sidebar {
+  flex: 0 0;
+}
+
+#sidebarToggle:checked ~ .Sidebar .PlayedByFriendsList {
+  overflow: hidden;
 }
 
 .Sidebar h3 {
   margin: 0;
+
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: show-sidebar-header 0.6s ease;
+}
+
+#sidebarToggle:checked ~ .Sidebar h3 {
+  display: none;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes show-sidebar-header {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+  62.5% {
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .SidebarHeader {
-  margin: 0 1em;
+  margin: 0;
+  padding: 0 1.5em;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,45 +63,134 @@
   display: none;
 }
 
-#sidebarToggle:checked ~ .Sidebar {
-  display: none;
-  /* position: absolute;
-  z-index: 99;
-  right: -22em;
-  width: 22em;
-  height: 80%; */
-}
-
-.ShownSidebar {
-  display: flex;
-}
-
-.HiddenSidebar {
-  display: none;
-}
-
 .PlayedByFriendsList {
-  
+  overflow-y: scroll;
+  max-height: 30em;
+}
+
+.PlayedByFriendsList .PlayedByFriendsThumbnail {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: show-thumbnails 1.2s ease;
+}
+
+#sidebarToggle:checked ~ .Sidebar .PlayedByFriendsThumbnail  {
+  display: none;
+  opacity: 0;
+  transform: scale(0);
+}
+
+@keyframes show-thumbnails {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+  62.5% {
+    display: flex;
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 900px)  {
 
-  .Sidebar {
+  /* .Sidebar {
     display: none;
   }
+  
+  #sidebarToggle:checked ~ .Sidebar {
+    display: flex;
+  } */
 
-  .PlayedByFriendsList {
+  .Sidebar {
+    display: none;
+    /* transform: scale(0); */
+    /* transform: translate(-9em); */
+    opacity: 0;
+    animation: show-mobile-headbar 0.5s ease;
+  }
+  
+  #sidebarToggle:checked ~ .Sidebar {
+    display: flex;
+    /* transform: scale(1); */
+    /* transform: translate(0); */
+    opacity: 1;
+  }
+
+  @keyframes show-mobile-headbar {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: flex;
+      opacity: 0;
+      /* transform: translate(-9em); */
+    }
+    100% {
+      opacity: 1;
+      /* transform: translate(0); */
+    }
+  }
+
+  .Sidebar h3 {
+    margin: 0;
+    transform: translate(-9em);
+    transition: none;
+    animation: slide-in-from-left 0.5s ease;
+  }
+  
+  #sidebarToggle:checked ~ .Sidebar h3 {
+    margin: 0 3em;
+    align-self: center;
+    display: block;
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  @keyframes slide-in-from-left {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+    1% {
+      display: flex;
+      opacity: 0;
+      transform: translate(-9em);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  #sidebarToggle:checked ~ .Sidebar .PlayedByFriendsList {
     display: flex;
     overflow-x: scroll;
   }
 
-  #sidebarToggle:checked ~ .Sidebar {
+  .PlayedByFriendsList .PlayedByFriendsThumbnail {
+    opacity: 1;
+    transform: translate(-9em);
+    transition: none;
+    animation: slide-in-from-left 0.5s ease;
+  }
+  
+  #sidebarToggle:checked ~ .Sidebar .PlayedByFriendsThumbnail  {
     display: flex;
-    position: unset;
-    z-index: 99;
-    right: -0;
-    width: auto;
-    height: auto;
+    opacity: 1;
+    transform: translate(0);
   }
 
 }

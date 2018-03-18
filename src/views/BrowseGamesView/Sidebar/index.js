@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './SidebarNew.css'
+import './Sidebar.css'
 
 import PlayedByFriendsThumbnail from './PlayedByFriendsThumbnail'
 

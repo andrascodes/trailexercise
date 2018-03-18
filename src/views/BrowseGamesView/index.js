@@ -14,16 +14,10 @@ class BrowseGamesView extends Component {
       attributes.online_friends !== null && attributes.online_friends.length > 0
   )
 
-  handleNotificationsToggle = () => {
-    const newState = {}
-    if(this.state.sideBarShown === true) {
-      newState.sideBarShown = false
-    }
-    else {
-      newState.sideBarShown = true
-    }
-    this.setState(newState)
+  componentDidMount() {
+    this.sidebarToggle.onchange = () => { console.log(this.sidebarToggle.checked)}
   }
+  
   
   render() {
     return (
@@ -31,13 +25,19 @@ class BrowseGamesView extends Component {
         
         <div className="Header">
           <h2>Browse Games</h2>
-          <label htmlFor="sidebarToggle" className="Header SidebarHeader">
+          <label 
+            htmlFor="sidebarToggle" 
+            className="Header SidebarHeader"
+          >
             <FontAwesomeIcon icon={faBell} />
           </label>
         </div>
 
         <div className="BrowseGamesViewContent">
-          <input type="checkbox" id="sidebarToggle" name="sidebarToggle" />
+          <input 
+            type="checkbox" id="sidebarToggle" name="sidebarToggle" 
+            ref={(sidebarToggle) => this.sidebarToggle = sidebarToggle}
+          />
           
           <Sidebar 
             games={this.gamesPlayedByFriends(this.props.games)}
