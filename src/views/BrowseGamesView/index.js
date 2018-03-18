@@ -46,6 +46,7 @@ class BrowseGamesView extends Component {
                   name={attributes.name}
                   image={attributes.img_card_bg}
                   backgroundColor={attributes.img_card_avg_color}
+                  videos={attributes.video_sources}
                 />
               )
             })}

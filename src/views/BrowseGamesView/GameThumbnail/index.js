@@ -42,6 +42,23 @@ class GameThumbnail extends Component {
             ref={imageElement => this.imageElement = imageElement}
           >
           </div>
+
+          <video 
+            className="GameThumbnailVideo"
+            onMouseEnter={(event) => {
+              event.target.play()
+              event.target.classList.add('show')
+            }}
+            onMouseLeave={(event) => {
+              event.target.pause()
+              event.target.classList.remove('show')
+              event.target.currentTime = 0
+            }}
+            ref={videoElement => this.videoElement = videoElement}
+          >
+            <source src={this.props.videos[0]} type="video/webm" />
+            <source src={this.props.videos[1]} type="video/mp4" />
+          </video>
           
           <div 
             className="GameThumbnailPreload"
@@ -49,6 +66,7 @@ class GameThumbnail extends Component {
               backgroundColor: this.props.backgroundColor,
             }}
           >
+            {this.props.name}
           </div>
         </div>
 
