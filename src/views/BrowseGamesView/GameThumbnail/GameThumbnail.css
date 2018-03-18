@@ -1,7 +1,8 @@
 .GameThumbnail {
   flex: 1 1 16em;
   margin: 0.4em;
-  height: 9em;
+  height: 10em;
+  border: 1px solid black;
 }
 
 #sidebarToggle:checked ~ .GameList .GameThumbnail {
@@ -32,6 +33,7 @@
   color: white;
   font-size: 1em;
   font-weight: bold;
+  opacity: 0.8;
 }
 
 .GameThumbnailImageLoaded {
@@ -102,7 +104,7 @@
   }
 }
 
-@media (max-width: 885px)  { 
+@media (max-width: 891px)  { 
 
   .GameThumbnail, #sidebarToggle:checked ~ .GameList .GameThumbnail {
     height: 13em;

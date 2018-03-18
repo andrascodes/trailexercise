@@ -9,7 +9,7 @@ const Sidebar = props => {
     <div className="Sidebar">
 
       <div className="SidebarContent">
-        <h3>What you're friends are playing</h3>
+        <h3>What your friends are playing</h3>
 
         <div className="PlayedByFriendsList">
           {props.games.map(({ id, attributes }) => (

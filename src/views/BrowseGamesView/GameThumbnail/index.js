@@ -36,6 +36,23 @@ class GameThumbnail extends Component {
     this.imageElement.classList.remove('colorBackground')
   }
 
+  handleImageInteractionStart = (event) => {
+    event.preventDefault()
+    event.target.play()
+    event.target.addEventListener('ended', this.handleVideoEndEvent)
+    event.target.classList.add('show')
+    this.imageElement.classList.add('colorBackground')
+  }
+
+  handleImageInteractionEnd = (event) => {
+    event.preventDefault()
+    event.target.pause()
+    event.target.removeEventListener('ended', this.handleVideoEndEvent)
+    event.target.classList.remove('show')
+    this.imageElement.classList.remove('colorBackground')
+    event.target.currentTime = 0
+  }
+
   render() {
 
     return (
@@ -50,20 +67,13 @@ class GameThumbnail extends Component {
 
           <video 
             className="GameThumbnailVideo"
-            onMouseEnter={(event) => {
-              event.target.play()
-              event.target.addEventListener('ended', this.handleVideoEndEvent)
-              event.target.classList.add('show')
-              this.imageElement.classList.add('colorBackground')
-            }}
-            onMouseLeave={(event) => {
-              event.target.pause()
-              event.target.removeEventListener('ended', this.handleVideoEndEvent)
-              event.target.classList.remove('show')
-              this.imageElement.classList.remove('colorBackground')
-              event.target.currentTime = 0
-            }}
+            onMouseEnter={this.handleImageInteractionStart}
+            onMouseLeave={this.handleImageInteractionEnd}
+            onTouchStart={this.handleImageInteractionStart}
+            onTouchEnd={this.handleImageInteractionEnd}
             ref={videoElement => this.videoElement = videoElement}
+            playsInline
+            webkit-playsinline="true"
           >
             <source src={this.props.videos[0]} type="video/webm" />
             <source src={this.props.videos[1]} type="video/mp4" />
