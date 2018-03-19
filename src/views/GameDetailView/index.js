@@ -24,11 +24,12 @@ class GameDetailView extends Component {
 
   componentDidMount() {
     const gameSlug = this.props.match.params.name
-    setTimeout(() => {
-      this.setState({
+    // setTimeout(() => {
+      
+    // }, 1500)
+    this.setState({
       game: GameAPI.getGameBySlug(gameSlug)
     })
-    }, 1500)
     
   }
 
@@ -41,7 +42,7 @@ class GameDetailView extends Component {
   }
 
   renderGameDetailView = ({ 
-    img_card_bg, description, name, 
+    img_card_bg, img_card_avg_color, description, name, 
     tags, review_rating, peripherals,
     video_sources, avg_match_time,
     online_players, online_friends
@@ -68,49 +69,58 @@ class GameDetailView extends Component {
     return (
       <div className="GameDetailView">
         <div className="GameHeroElement">
-          <div className="GameInformation">
-            
-            <h1 className="GameTitle">{name}</h1>
-            
-            <div className="GameReview">
-              <div className="GameRating">
-                {
-                  fullStars.concat(halfStar ? [halfStar] : [])
-                }
+          <div className="GameImage" style={{ backgroundImage: `url(${img_card_bg})` }}>
+            <div className="GameInformation">
+              
+              <h1 className="GameTitle">{name}</h1>
+
+              <div className="GameInfoIconBar">
+
+                <div className="GameRating">
+                  {
+                    fullStars.concat(halfStar ? [halfStar] : [])
+                  }
+                </div>
+
+                <div className="GameTags">
+                  ({tags.join(', ')})
+                </div>
+
+                <div className="GamePeripherals">
+                  {peripherals.map(device => {
+                    const deviceToIconMap = {
+                      'keyboard':  <FontAwesomeIcon icon={faKeyboard} />,
+                      'mouse': <FontAwesomeIcon icon={faMousePointer} />,
+                      'gamepad': <FontAwesomeIcon icon={faGamepad} />,
+                    }
+                    return (
+                      <div key={`device-${device}`} className="GamePeripheral">
+                        {deviceToIconMap[device]}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
 
-              <p className="GameTags">
-                {tags.join(', ')}
-              </p>
-            </div>
-
-            <div className="GamePeripheralsContainer">
-              <div className="GamePeripheralsText">
-                You'll be needing these:
+              <div className="GameTime">
+                A match takes about {avg_match_time} minutes.
               </div>
-              <div className="GamePeripherals">
-              {peripherals.map(device => {
-                const deviceToIconMap = {
-                  'keyboard':  <FontAwesomeIcon icon={faKeyboard} />,
-                  'mouse': <FontAwesomeIcon icon={faMousePointer} />,
-                  'gamepad': <FontAwesomeIcon icon={faGamepad} />,
-                }
-                return (
-                  <div key={`device-${device}`} className="GamePeripheral">
-                    {deviceToIconMap[device]}
-                  </div>
-                )
-              })}
-              </div>
-            </div>
 
-            <div className="GameTime">
-              A match takes about {avg_match_time} minutes.
             </div>
-
+            <div 
+              className="GameImageBefore"
+              style={{ 
+                backgroundImage: `linear-gradient(
+                  to right, 
+                  rgba(0, 0, 0, 0) 550px, 
+                  ${img_card_avg_color} 600px, 
+                  ${img_card_avg_color}
+                )`
+              }}
+            >
+            </div>
           </div>
-
-          <img className="GameImage" src={img_card_bg} alt={`${name}`}/>
+          {/* <img className="GameImage" src={img_card_bg} alt={`${name}`}/> */}
         </div>
         <div className="GameMatches">
 

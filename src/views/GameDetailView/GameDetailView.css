@@ -14,29 +14,56 @@
 .GameHeroElement {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
-}
-
-.GameInformation {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 }
 
 .GameImage {
   /* width: 100%; */
   /* height: auto; */
+  position: relative;
+  height: 22rem;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
-.GameReview {
+.GameImageBefore{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.GameInformation {
+  z-index: 99;
+  margin-right: 7rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.GameTitle {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.GameInfoIconBar {
+  display: flex;
+}
+
+.GameRating {
+  margin-right: 1rem;
 }
 
 .GameTags {
-  
+  margin-right: 1rem;
 }
 
 .GamePeripheralsContainer {
@@ -48,9 +75,12 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-left: 1em;
 }
 
 .GamePeripheral {
   margin-right: 1em;
+}
+
+.GameTime {
+  margin-top: 1rem;
 }
