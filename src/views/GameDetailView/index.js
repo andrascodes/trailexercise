@@ -24,13 +24,11 @@ class GameDetailView extends Component {
 
   componentDidMount() {
     const gameSlug = this.props.match.params.name
-    // setTimeout(() => {
-      
-    // }, 1500)
-    this.setState({
-      game: GameAPI.getGameBySlug(gameSlug)
-    })
-    
+    setTimeout(() => {
+      this.setState({
+        game: GameAPI.getGameBySlug(gameSlug)
+      })
+    }, 1500)
   }
 
   renderLoader = () => {
