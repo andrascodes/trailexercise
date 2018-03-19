@@ -60,7 +60,7 @@ class GameThumbnail extends Component {
 
     return (
       <Link 
-        to={`/games/${this.props.link}`}
+        to={`${process.env.PUBLIC_URL}/games/${this.props.link}`}
         className="GameThumbnail"
       >
 

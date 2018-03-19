@@ -91,12 +91,12 @@ class GameDetailView extends Component {
               <div className="GamePeripherals">
               {peripherals.map(device => {
                 const deviceToIconMap = {
-                  'keyboard':  <FontAwesomeIcon key={`device-${device}`} icon={faKeyboard} />,
-                  'mouse': <FontAwesomeIcon key={`device-${device}`} icon={faMousePointer} />,
-                  'gamepad': <FontAwesomeIcon key={`device-${device}`} icon={faGamepad} />,
+                  'keyboard':  <FontAwesomeIcon icon={faKeyboard} />,
+                  'mouse': <FontAwesomeIcon icon={faMousePointer} />,
+                  'gamepad': <FontAwesomeIcon icon={faGamepad} />,
                 }
                 return (
-                  <div className="GamePeripheral">
+                  <div key={`device-${device}`} className="GamePeripheral">
                     {deviceToIconMap[device]}
                   </div>
                 )
