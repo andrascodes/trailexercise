@@ -49,10 +49,12 @@ class BrowseGamesView extends Component {
               return (
                 <GameThumbnail 
                   key={`game-${id}`}
+                  id={id}
                   name={attributes.name}
                   image={attributes.img_card_bg}
                   backgroundColor={attributes.img_card_avg_color}
                   videos={attributes.video_sources}
+                  link={attributes.slug}
                 />
               )
             })}

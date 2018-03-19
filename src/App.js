@@ -8,7 +8,7 @@ import {
 import './App.css'
 
 import GameAPI from './lib/GameAPI'
-import { BrowseGamesView } from './views'
+import { BrowseGamesView, GameDetailView } from './views'
 
 class App extends Component {
 
@@ -22,8 +22,6 @@ class App extends Component {
       games: GameAPI.getAllGames()
     })
   }
-  
-  getGameById = id => this.state.games.find(game => game.id === id)
 
   renderBrowseGamesView = props => (
     <BrowseGamesView 
@@ -38,7 +36,7 @@ class App extends Component {
         <Router>
           <Fragment>
             <Route exact path={`${process.env.PUBLIC_URL}/`} render={this.renderBrowseGamesView}/>
-            <Route exact path={`${process.env.PUBLIC_URL}/games/:id`} render={() => (<h1>Hello World!</h1>)}/>
+            <Route exact path={`${process.env.PUBLIC_URL}/games/:name`} component={GameDetailView}/>
           </Fragment>
         </Router>
       </div>

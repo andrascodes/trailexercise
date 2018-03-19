@@ -1,0 +1,56 @@
+.LoadingScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.GameDetailView {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.GameHeroElement {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.GameInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.GameImage {
+  /* width: 100%; */
+  /* height: auto; */
+}
+
+.GameReview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.GameTags {
+  
+}
+
+.GamePeripheralsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.GamePeripherals {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 1em;
+}
+
+.GamePeripheral {
+  margin-right: 1em;
+}
